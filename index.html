@@ -2,214 +2,313 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Premium outdoor hot tubs manufactured in Lithuania. Wholesale and distribution partnerships across Europe.">
-  <title>Premium Hot Tubs | Lithuanian Manufacturer</title>
-  <style>
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      color: #202b2a;
-      background: #fff;
-      line-height: 1.6;
-    }
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 22px 7%;
-      background: #fff;
-    }
-    .logo { font-size: 21px; font-weight: 800; letter-spacing: 2px; }
-    nav a {
-      color: #263c39;
-      text-decoration: none;
-      margin-left: 24px;
-      font-size: 14px;
-    }
-    .hero {
-      min-height: 590px;
-      padding: 100px 8%;
-      color: white;
-      display: flex;
-      align-items: center;
-      background:
-        linear-gradient(90deg,rgba(10,25,24,.88),rgba(10,25,24,.25)),
-        url('YOUR-HOT-TUB-PHOTO.jpg') center/cover;
-    }
-    .hero-content { max-width: 650px; }
-    .eyebrow {
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      font-size: 12px;
-    }
-    h1 { font-size: clamp(38px,6vw,68px); line-height: 1.08; }
-    .hero p { font-size: 19px; max-width: 520px; }
-    .button {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 15px 25px;
-      background: #b99565;
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    section { padding: 85px 8%; }
-    .intro { max-width: 750px; margin: auto; text-align: center; }
-    h2 { font-size: 36px; line-height: 1.2; }
-    .muted { color: #687572; }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3,1fr);
-      gap: 25px;
-      margin-top: 40px;
-    }
-    .card {
-      padding: 28px;
-      background: #f4f5f2;
-    }
-    .card h3 { margin-top: 0; }
-    .dark {
-      background: #1c302d;
-      color: white;
-    }
-    .dark .muted { color: #c3ceca; }
-    .contact { text-align: center; }
-    footer {
-      background: #142320;
-      color: white;
-      padding: 35px 8%;
-      font-size: 14px;
-    }
-    footer a { color: white; }
-    @media(max-width:750px) {
-      header { flex-wrap: wrap; gap: 15px; }
-      nav a { margin: 0 12px 0 0; }
-      .hero { min-height: 500px; padding: 65px 7%; }
-      .grid { grid-template-columns: 1fr; }
-      section { padding: 60px 7%; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Premium outdoor hot tubs manufactured in Lithuania. Wholesale, distribution and business partnerships across Europe.">
+<title>Premium Hot Tubs | Lithuanian Manufacturer</title>
+
+<style>
+:root {
+  --dark:#182723;
+  --green:#344b40;
+  --gold:#bd9b6a;
+  --cream:#f5f3ee;
+  --white:#fff;
+}
+* {box-sizing:border-box}
+html {scroll-behavior:smooth}
+body {
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  color:var(--dark);
+}
+a {text-decoration:none;color:inherit}
+header {
+  height:82px;
+  padding:0 7%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  background:white;
+  position:sticky;
+  top:0;
+  z-index:10;
+}
+.logo {
+  font-size:19px;
+  font-weight:800;
+  letter-spacing:2px;
+}
+.logo span {color:var(--gold)}
+nav {display:flex;gap:27px;align-items:center}
+nav a {font-size:13px;font-weight:600}
+nav a:hover {color:var(--gold)}
+.btn {
+  display:inline-block;
+  padding:16px 25px;
+  background:var(--gold);
+  color:white;
+  font-size:12px;
+  font-weight:bold;
+  letter-spacing:1px;
+  border:0;
+  cursor:pointer;
+}
+.btn:hover {background:#a17d4e}
+.hero {
+  min-height:650px;
+  background:
+   linear-gradient(90deg,rgba(14,28,24,.88),rgba(14,28,24,.15)),
+   linear-gradient(135deg,#344b40,#17251f);
+  display:flex;
+  align-items:center;
+  padding:90px 10%;
+  color:white;
+}
+.hero-content {max-width:700px}
+.eyebrow {
+  color:var(--gold);
+  font-size:12px;
+  letter-spacing:3px;
+  font-weight:bold;
+}
+h1 {
+  font-family:Georgia,serif;
+  font-weight:normal;
+  font-size:clamp(42px,6vw,76px);
+  line-height:1.08;
+  margin:24px 0;
+}
+.hero p {
+  font-size:18px;
+  line-height:1.8;
+  max-width:550px;
+  color:#e5e7e3;
+}
+.hero .btn {margin-top:20px}
+section {padding:100px 9%}
+.center {text-align:center}
+h2 {
+  font-family:Georgia,serif;
+  font-size:clamp(32px,4vw,48px);
+  font-weight:normal;
+  line-height:1.2;
+}
+.lead {
+  max-width:760px;
+  margin:20px auto;
+  line-height:1.9;
+  color:#68736d;
+}
+.cream {background:var(--cream)}
+.grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:25px;
+  margin-top:48px;
+}
+.card {
+  background:white;
+  padding:32px;
+  border:1px solid #e9e6df;
+}
+.card h3 {font-family:Georgia,serif;font-size:23px}
+.card p {color:#68736d;line-height:1.8;font-size:14px}
+.number {
+  font-family:Georgia,serif;
+  font-size:38px;
+  color:var(--gold);
+}
+.dark {
+  background:var(--dark);
+  color:white;
+}
+.dark p {color:#c5cec8}
+.split {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:65px;
+  align-items:center;
+}
+.feature {
+  border-bottom:1px solid #dcded8;
+  padding:18px 0;
+  font-size:15px;
+}
+.dark .feature {border-color:#46554d}
+.partner-box {
+  background:white;
+  padding:38px;
+  color:var(--dark);
+}
+.partner-box p {color:#68736d}
+.contact {background:var(--cream);text-align:center}
+footer {
+  background:#111c18;
+  color:white;
+  padding:45px 9%;
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:20px;
+}
+footer p {font-size:13px;color:#bdc6bf}
+@media(max-width:800px) {
+  header {height:auto;min-height:75px;flex-wrap:wrap;padding:20px 6%}
+  nav {width:100%;gap:17px;flex-wrap:wrap;margin-top:15px}
+  nav a {font-size:12px}
+  .hero {min-height:560px;padding:75px 7%}
+  section {padding:70px 7%}
+  .grid,.split {grid-template-columns:1fr}
+  footer {flex-direction:column}
+}
+</style>
 </head>
+
 <body>
 
 <header>
-  <div class="logo">PREMIUM HOT TUBS</div>
+  <a class="logo" href="#">PREMIUM <span>HOT TUBS</span></a>
   <nav>
-    <a href="#products">Products</a>
-    <a href="#manufacturing">Manufacturing</a>
-    <a href="#partners">Partners</a>
-    <a href="#contact">Contact</a>
+    <a href="#about">ABOUT</a>
+    <a href="#products">PRODUCTS</a>
+    <a href="#manufacturing">MANUFACTURING</a>
+    <a href="#partners">PARTNERS</a>
+    <a href="#contact">CONTACT</a>
   </nav>
 </header>
 
 <main>
-  <div class="hero">
-    <div class="hero-content">
-      <div class="eyebrow">Lithuanian Hot Tub Manufacturer</div>
-      <h1>Premium Outdoor Hot Tubs. Crafted in Lithuania.</h1>
+
+<div class="hero">
+  <div class="hero-content">
+    <div class="eyebrow">LITHUANIAN HOT TUB MANUFACTURER</div>
+    <h1>Premium Outdoor Hot Tubs. Crafted in Lithuania.</h1>
+    <p>
+      Modern outdoor hot tubs combining thoughtful design,
+      quality materials and comfort.
+      Your potential manufacturing partner in Europe.
+    </p>
+    <a class="btn" href="#partners">BECOME OUR BUSINESS PARTNER</a>
+  </div>
+</div>
+
+<section id="about" class="center">
+  <div class="eyebrow">ABOUT PREMIUM HOT TUBS</div>
+  <h2>Creating Outdoor Wellness Experiences</h2>
+  <p class="lead">
+    Based in Lithuania, Premium Hot Tubs focuses on manufacturing
+    modern outdoor hot tubs for customers and business partners.
+    We welcome distributors, specialist retailers, hotels and
+    hospitality businesses looking for a reliable supplier.
+  </p>
+</section>
+
+<section id="products" class="cream">
+  <div class="center">
+    <div class="eyebrow">OUR PRODUCT RANGE</div>
+    <h2>Discover Our Hot Tubs</h2>
+    <p class="lead">
+      Flexible configurations and equipment options
+      for different customer requirements.
+    </p>
+  </div>
+  <div class="grid">
+    <article class="card">
+      <div class="number">01</div>
+      <h3>External Heater</h3>
       <p>
-        Modern wood-fired hot tubs designed for comfort,
-        quality and long-term business partnerships.
+        Outdoor hot tub configurations with an external
+        wood-fired heating system.
       </p>
-      <a class="button" href="#partners">BECOME OUR PARTNER</a>
+    </article>
+    <article class="card">
+      <div class="number">02</div>
+      <h3>Integrated Heater</h3>
+      <p>
+        Practical hot tub configurations with an
+        integrated heating system.
+      </p>
+    </article>
+    <article class="card">
+      <div class="number">03</div>
+      <h3>Custom Solutions</h3>
+      <p>
+        Additional equipment and custom configurations
+        according to project requirements.
+      </p>
+    </article>
+  </div>
+</section>
+
+<section id="manufacturing">
+  <div class="split">
+    <div>
+      <div class="eyebrow">MADE IN LITHUANIA</div>
+      <h2>Manufacturing With Attention to Detail</h2>
+      <p class="lead" style="margin-left:0">
+        Our focus is on practical product design,
+        carefully selected materials and solutions
+        that meet the needs of modern outdoor living.
+      </p>
+    </div>
+    <div>
+      <div class="feature">Quality materials and components</div>
+      <div class="feature">Different equipment configurations</div>
+      <div class="feature">Product customisation opportunities</div>
+      <div class="feature">Direct communication with the manufacturer</div>
     </div>
   </div>
+</section>
 
-  <section>
-    <div class="intro">
-      <div class="eyebrow muted">PREMIUM HOT TUBS</div>
-      <h2>Your Reliable Manufacturing Partner in Europe</h2>
-      <p class="muted">
-        We manufacture modern outdoor hot tubs in Lithuania.
-        We are looking to build lasting partnerships with
-        distributors, retailers, spa businesses and hospitality
-        operators throughout Europe and Scandinavia.
-      </p>
+<section class="dark" id="partners">
+  <div class="center">
+    <div class="eyebrow">BUSINESS PARTNERSHIPS</div>
+    <h2>Let's Grow Together</h2>
+    <p class="lead">
+      We are looking for long-term business relationships
+      across Europe and Scandinavia.
+    </p>
+  </div>
+  <div class="grid">
+    <div class="partner-box">
+      <h3>Distributors & Wholesalers</h3>
+      <p>Explore wholesale supply and distribution opportunities.</p>
     </div>
-  </section>
+    <div class="partner-box">
+      <h3>Retail Partners</h3>
+      <p>Expand your product range with premium outdoor hot tubs.</p>
+    </div>
+    <div class="partner-box">
+      <h3>Hotels & Resorts</h3>
+      <p>Discuss solutions for hotels, resorts and wellness projects.</p>
+    </div>
+  </div>
+</section>
 
-  <section id="products">
-    <div class="intro">
-      <div class="eyebrow muted">OUR PRODUCTS</div>
-      <h2>Designed Around Your Needs</h2>
-      <p class="muted">
-        Functional design, quality materials and flexible
-        equipment options.
-      </p>
-    </div>
-    <div class="grid">
-      <div class="card">
-        <h3>External Heater</h3>
-        <p>Wood-fired hot tub with an external stainless steel heater.</p>
-      </div>
-      <div class="card">
-        <h3>Integrated Heater</h3>
-        <p>A practical configuration with an integrated wood-fired heater.</p>
-      </div>
-      <div class="card">
-        <h3>Custom Options</h3>
-        <p>Massage systems, LED lighting, insulation and different finishes.</p>
-      </div>
-    </div>
-  </section>
+<section class="contact" id="contact">
+  <div class="eyebrow">CONTACT OUR TEAM</div>
+  <h2>Looking for a Reliable Hot Tub Manufacturer?</h2>
+  <p class="lead">
+    Tell us about your company, your market and your
+    business requirements. Let's explore cooperation.
+  </p>
+  <a class="btn" href="mailto:YOUR_EMAIL_ADDRESS?subject=Business%20Partnership%20Enquiry">
+    SEND BUSINESS ENQUIRY
+  </a>
+</section>
 
-  <section class="dark" id="manufacturing">
-    <div class="intro">
-      <div class="eyebrow">MADE IN LITHUANIA</div>
-      <h2>Quality. Craftsmanship. Attention to Detail.</h2>
-      <p class="muted">
-        Every hot tub is carefully assembled and tested.
-        We focus on materials, practical solutions and
-        customer requirements.
-      </p>
-    </div>
-  </section>
-
-  <section id="partners">
-    <div class="intro">
-      <div class="eyebrow muted">BUSINESS OPPORTUNITIES</div>
-      <h2>Let's Grow Together</h2>
-      <p class="muted">
-        We welcome enquiries from distributors, hot tub and
-        outdoor spa retailers, hotels and holiday resorts.
-      </p>
-      <div class="grid">
-        <div class="card">
-          <h3>Distributors</h3>
-          <p>Explore wholesale supply opportunities in your market.</p>
-        </div>
-        <div class="card">
-          <h3>Retail Partners</h3>
-          <p>Expand your outdoor wellness product range.</p>
-        </div>
-        <div class="card">
-          <h3>Hotels & Resorts</h3>
-          <p>Discuss hot tub solutions for your hospitality project.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="contact" id="contact">
-    <div class="eyebrow muted">GET IN TOUCH</div>
-    <h2>Looking for a Manufacturing Partner?</h2>
-    <p>Tell us about your business and your market.</p>
-    <a class="button"
-       href="mailto:premiumhottubslt@gmail.com?subject=Business%20Partnership%20Enquiry">
-       CONTACT OUR TEAM
-    </a>
-  </section>
 </main>
 
 <footer>
-  <strong>PREMIUM HOT TUBS</strong>
-  <p>Manufactured in Panevėžys, Lithuania</p>
-  <p>Phone: +370 601 41752</p>
-  <p>Email: premiumhottubslt@gmail.com</p>
-  <p>© 2026 Premium Hot Tubs. All rights reserved.</p>
+  <div>
+    <div class="logo">PREMIUM HOT TUBS</div>
+    <p>Outdoor Hot Tub Manufacturer | Lithuania</p>
+  </div>
+  <div>
+    <p>© 2026 PREMIUM HOT TUBS</p>
+    <p>Made in Lithuania. Built for Europe.</p>
+  </div>
 </footer>
 
 </body>
