@@ -46,6 +46,20 @@ html{scroll-padding-top:120px}
 .product-link:focus-visible{outline:3px solid var(--forest);outline-offset:-3px}
 .gallery-toggle{display:inline-block;margin-top:16px;font-size:14px;font-weight:700;text-decoration:underline}
 .integrated-product img{object-position:50% 78%}
+
+@media(prefers-reduced-motion:no-preference){
+  @keyframes arrive{from{opacity:.45;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+
+  .hero-inner{animation:arrive .55s ease-out both}
+  .product-grid .card{transition:transform .22s ease,box-shadow .22s ease}
+  .product-link img{transition:transform .3s ease}
+  .product-grid .card:focus-within{transform:translateY(-3px);box-shadow:0 10px 24px #17251f22}
+  @media(hover:hover){
+    .product-grid .card:hover{transform:translateY(-4px);box-shadow:0 12px 26px #17251f26}
+    .product-link:hover img{transform:scale(1.025)}
+  }
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
