@@ -93,15 +93,15 @@ html{scroll-padding-top:120px}
     <h2>Request trade pricing</h2>
     <p class="lead">Tell us about your company and what you need for your market</p>
     <p class="lead"><strong>We reply within one business day</strong></p>
-    <form class="trade-form" id="trade-enquiry" hidden>
+    <form class="trade-form" id="trade-enquiry" method="post" action="https://formspree.io/f/mljblapj">
       <div class="trade-fields">
         <label>Company name<input name="company" autocomplete="organization" required></label>
         <label>Country<input name="country" autocomplete="country-name" required></label>
         <label>Business email<input name="email" type="email" autocomplete="email" required></label>
       </div>
       <label class="trade-message">What are you looking for? (optional)<textarea name="message" maxlength="800"></textarea></label>
-      <p class="trade-note" id="trade-note">Opens a draft in your email app for you to review and send</p>
-      <button class="btn" type="submit" aria-describedby="trade-note">Prepare enquiry email</button>
+      <p class="trade-note" id="trade-note" role="status"></p>
+      <button class="btn" type="submit" aria-describedby="trade-note">Send enquiry</button>
     </form>
     <div class="contact-details">
       <a id="trade-email" href="mailto:sales@premiumhottubs.eu?subject=Trade%20pricing%20enquiry">sales@premiumhottubs.eu</a>
@@ -120,20 +120,29 @@ html{scroll-padding-top:120px}
 <footer><div class="brand">Garden Spa</div><p>© 2026 Garden Spa</p></footer>
 <script>
   const tradeForm = document.querySelector('#trade-enquiry');
-  const emailLink = document.querySelector('#trade-email');
-  tradeForm.addEventListener('submit', (event) => {
+  const submitButton = tradeForm.querySelector('button[type="submit"]');
+  const status = document.querySelector('#trade-note');
+
+  tradeForm.addEventListener('submit', async (event) => {
     event.preventDefault();
-    const details = new FormData(tradeForm);
-    const message = [
-      'Company: ' + details.get('company'),
-      'Country: ' + details.get('country'),
-      'Business email: ' + details.get('email'),
-      '',
-      details.get('message')
-    ].join('\r\n');
-    window.location.href = emailLink.href + '&body=' + encodeURIComponent(message);
+    submitButton.disabled = true;
+    status.textContent = 'Sending your enquiry…';
+
+    try {
+      const response = await fetch(tradeForm.action, {
+        method: 'POST',
+        body: new FormData(tradeForm),
+        headers: { Accept: 'application/json' }
+      });
+      if (!response.ok) throw new Error('Submission failed');
+      tradeForm.reset();
+      status.textContent = 'Thank you. Your enquiry has been sent.';
+    } catch {
+      status.textContent = 'We could not send your enquiry. Please try again or email sales@premiumhottubs.eu.';
+    } finally {
+      submitButton.disabled = false;
+    }
   });
-  tradeForm.hidden = false;
 </script>
 </body>
 </html>
