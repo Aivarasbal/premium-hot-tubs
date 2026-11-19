@@ -18,9 +18,11 @@ h1{font:normal clamp(34px,6vw,58px)/1.15 Georgia,serif;margin-bottom:.3em}
 .gallery a:focus-visible,.photo-viewer button:focus-visible{outline:3px solid #597b69;outline-offset:-3px}
 .photo-viewer{box-sizing:border-box;max-width:94vw;max-height:96vh;padding:10px;border:0;border-radius:6px;background:#17251f;color:#fff}
 .photo-viewer::backdrop{background:rgba(0,0,0,.82)}
-.photo-viewer img{display:block;max-width:100%;max-height:calc(96vh - 65px);width:auto;height:auto;margin:auto}
+.photo-viewer img{display:block;max-width:100%;max-height:calc(96vh - 120px);width:auto;height:auto;margin:auto}
 .photo-viewer button{display:block;margin:0 0 8px auto;min-height:38px;padding:4px 12px;background:#fff;color:#17251f;border:0;border-radius:3px;font:inherit;cursor:pointer}
 @media(max-width:360px){.gallery{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.photo-controls{display:flex;justify-content:center;align-items:center;gap:12px;margin-top:10px}
+.photo-controls button{margin:0}
 </style>
 </head>
 <body>
@@ -42,17 +44,40 @@ h1{font:normal clamp(34px,6vw,58px)/1.15 Georgia,serif;margin-bottom:.3em}
 <dialog class="photo-viewer" id="photo-viewer" aria-label="Enlarged product photo">
   <form method="dialog"><button autofocus>Close</button></form>
   <img alt="">
+  <div class="photo-controls">
+    <button type="button" id="previous-photo">Previous</button>
+    <span id="photo-count" aria-live="polite"></span>
+    <button type="button" id="next-photo">Next</button>
+  </div>
 </dialog>
 <script>
   const gallery = document.querySelector('.gallery');
   const viewer = document.querySelector('#photo-viewer');
   const photo = viewer.querySelector('img');
+  const links = Array.from(gallery.querySelectorAll('a'));
+  const count = viewer.querySelector('#photo-count');
+  let current = 0;
+
+  function showPhoto(index) {
+    current = (index + links.length) % links.length;
+    const link = links[current];
+    photo.src = link.href;
+    photo.alt = link.querySelector('img').alt;
+    count.textContent = (current + 1) + ' / ' + links.length;
+  }
+
+  viewer.querySelector('#previous-photo').addEventListener('click', () => showPhoto(current - 1));
+  viewer.querySelector('#next-photo').addEventListener('click', () => showPhoto(current + 1));
+  viewer.addEventListener('keydown', (event) => {
+    if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+    event.preventDefault();
+    showPhoto(current + (event.key === 'ArrowLeft' ? -1 : 1));
+  });
   gallery.addEventListener('click', (event) => {
     const link = event.target.closest('a');
     if (!link || !viewer.showModal || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
     event.preventDefault();
-    photo.src = link.href;
-    photo.alt = link.querySelector('img').alt;
+    showPhoto(links.indexOf(link));
     viewer.showModal();
   });
   viewer.addEventListener('click', (event) => {
