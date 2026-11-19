@@ -18,11 +18,13 @@ h1{font:normal clamp(34px,6vw,58px)/1.15 Georgia,serif;margin-bottom:.3em}
 .gallery a:focus-visible,.photo-viewer button:focus-visible{outline:3px solid #597b69;outline-offset:-3px}
 .photo-viewer{box-sizing:border-box;max-width:94vw;max-height:96vh;padding:10px;border:0;border-radius:6px;background:#17251f;color:#fff}
 .photo-viewer::backdrop{background:rgba(0,0,0,.82)}
-.photo-viewer img{display:block;max-width:100%;max-height:calc(96vh - 120px);width:auto;height:auto;margin:auto}
+.photo-viewer img{display:block;max-width:100%;max-height:calc(96vh - 80px);width:auto;height:auto;margin:auto}
 .photo-viewer button{display:block;margin:0 0 8px auto;min-height:38px;padding:4px 12px;background:#fff;color:#17251f;border:0;border-radius:3px;font:inherit;cursor:pointer}
 @media(max-width:360px){.gallery{grid-template-columns:repeat(2,minmax(0,1fr))}}
-.photo-controls{display:flex;justify-content:center;align-items:center;gap:12px;margin-top:10px}
-.photo-controls button{margin:0}
+.photo-close{display:flex;justify-content:flex-end;margin-bottom:6px}
+.photo-stage{display:grid;grid-template-columns:40px minmax(0,1fr) 40px;align-items:center;gap:4px}
+.photo-viewer button{margin:0;width:40px;height:40px;padding:0;font-size:30px;line-height:1}
+.photo-status{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
 </style>
 </head>
 <body>
@@ -43,13 +45,15 @@ h1{font:normal clamp(34px,6vw,58px)/1.15 Georgia,serif;margin-bottom:.3em}
 <a href="./#contact">Request trade pricing</a>
 </main>
 <dialog class="photo-viewer" id="photo-viewer" aria-label="Enlarged product photo">
-  <form method="dialog"><button autofocus>Close</button></form>
-  <img alt="">
-  <div class="photo-controls">
-    <button type="button" id="previous-photo">Previous</button>
-    <span id="photo-count" aria-live="polite"></span>
-    <button type="button" id="next-photo">Next</button>
+  <form method="dialog" class="photo-close">
+    <button aria-label="Close photo" autofocus>×</button>
+  </form>
+  <div class="photo-stage">
+    <button type="button" id="previous-photo" aria-label="Previous photo">‹</button>
+    <img alt="">
+    <button type="button" id="next-photo" aria-label="Next photo">›</button>
   </div>
+  <span id="photo-count" class="photo-status" aria-live="polite"></span>
 </dialog>
 <script>
   const gallery = document.querySelector('.gallery');
