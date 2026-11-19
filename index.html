@@ -86,14 +86,6 @@ html{scroll-padding-top:120px}
         <label>Company name<input name="company" autocomplete="organization" required></label>
         <label>Country<input name="country" autocomplete="country-name" required></label>
         <label>Business email<input name="email" type="email" autocomplete="email" required></label>
-        <label>Enquiry type
-          <select name="type" required>
-            <option value="">Choose an enquiry type</option>
-            <option>Retailer or dealer</option>
-            <option>Distributor</option>
-            <option>Other business enquiry</option>
-          </select>
-        </label>
       </div>
       <label class="trade-message">What are you looking for? (optional)<textarea name="message" maxlength="800"></textarea></label>
       <p class="trade-note" id="trade-note">Opens a draft in your email app for you to review and send</p>
@@ -118,7 +110,6 @@ html{scroll-padding-top:120px}
       'Company: ' + details.get('company'),
       'Country: ' + details.get('country'),
       'Business email: ' + details.get('email'),
-      'Enquiry type: ' + details.get('type'),
       '',
       details.get('message')
     ].join('\r\n');
