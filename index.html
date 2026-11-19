@@ -63,9 +63,10 @@ html{scroll-padding-top:120px}
 .company-details{margin-top:28px;color:var(--ink)}
 .company-details p{margin:4px 0;font-size:15px}
 .partner-link{text-decoration:underline;text-underline-offset:3px}
-.hero-brand{position:absolute;top:24px;right:6%;width:180px;height:154px;mix-blend-mode:multiply}
-.hero-brand img{width:307px;left:-65px;top:-98px}
-@media(max-width:800px){.hero-brand{top:auto;bottom:16px;right:6%;width:144px;height:123px}.hero-brand img{width:245px;left:-52px;top:-79px}}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse 270px 190px at calc(94% - 90px) 90px,rgba(12,24,19,.63),transparent)}
+.hero-brand{position:absolute;top:24px;right:6%;width:180px;height:154px;mix-blend-mode:screen}
+.hero-brand img{width:307px;left:-65px;top:-98px;filter:grayscale(1) invert(1) brightness(4) contrast(1.35)}
+@media(max-width:800px){.hero::after{background:radial-gradient(ellipse 185px 145px at calc(94% - 72px) calc(100% - 75px),rgba(12,24,19,.63),transparent)}.hero-brand{top:auto;bottom:16px;right:6%;width:144px;height:123px}.hero-brand img{width:245px;left:-52px;top:-79px}}
 </style>
 </head>
 <body>
